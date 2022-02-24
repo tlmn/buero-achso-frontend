@@ -43,9 +43,9 @@ export async function getStaticPaths() {
     return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params: { slug } }) {
     const { result } = await queryKirby({
-        query: `page('arbeiten/${params.slug}')`,
+        query: `page('arbeiten/${slug}')`,
         select: {
             content: true,
             pageimage: {
