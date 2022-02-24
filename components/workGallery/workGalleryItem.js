@@ -1,9 +1,9 @@
 import Image from "@/components/image";
 
 const GalleryItem = ({ galleryItem }) => (
-  <div>
-    <Image {...galleryItem} />
-  </div>
+    <div className="col-span-1">
+        <Image {...galleryItem} />
+    </div>
 );
 
 export default GalleryItem;
