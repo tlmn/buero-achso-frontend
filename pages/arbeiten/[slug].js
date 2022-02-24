@@ -14,7 +14,7 @@ const WorkPage = ({ data: { content, gallery, site, pageimage } }) => (
                 <meta property="og:image" content={pageimage.url} />
             )}
         </Head>
-        <Layout className="bg-neon">
+        <Layout className="bg-white">
             <h1 dangerouslySetInnerHTML={{ __html: content.title }} />
             {content?.subtitle && (
                 <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />

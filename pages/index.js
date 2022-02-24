@@ -15,7 +15,7 @@ const IndexPage = ({ result: { content, claims, works } }) => {
         <title>{content.title}</title>
         <meta property="og:title" content={content.title} key="title" />
       </Head>
-      <Layout className="bg-darkPink">
+      <Layout className="bg-neon">
         <div className="container grid grid-cols-2">
           <div className="col-span-1">
             <h1
