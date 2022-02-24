@@ -15,16 +15,18 @@ const WorkPage = ({ data: { content, gallery, site, pageimage } }) => (
             )}
         </Head>
         <Layout className="bg-white">
-            <h1 dangerouslySetInnerHTML={{ __html: content.title }} />
-            {content?.subtitle && (
-                <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
-            )}
-            {content?.collaborators && (
-                <h2 dangerouslySetInnerHTML={{ __html: content.collaborators }} />
-            )}
-            {content?.time && (
-                <h2 dangerouslySetInnerHTML={{ __html: content.time }} />
-            )}
+            <div className="col-span-full">
+                <h1 dangerouslySetInnerHTML={{ __html: content.title }} />
+                {content?.subtitle && (
+                    <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
+                )}
+                {content?.collaborators && (
+                    <h2 dangerouslySetInnerHTML={{ __html: content.collaborators }} />
+                )}
+                {content?.time && (
+                    <h2 dangerouslySetInnerHTML={{ __html: content.time }} />
+                )}
+            </div>
             <WorkGallery gallery={gallery} />
         </Layout>
     </>
