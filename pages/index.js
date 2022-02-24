@@ -16,17 +16,18 @@ const IndexPage = ({ result: { content, claims, works } }) => {
         <meta property="og:title" content={content.title} key="title" />
       </Head>
       <Layout className="bg-neon">
-        <div className="container grid grid-cols-2">
-          <div className="col-span-1">
-            <h1
-              className="text-red-400 text-7xl"
-              dangerouslySetInnerHTML={{ __html: content.pagetitle }}
-            />
-            <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
-            <h2 dangerouslySetInnerHTML={{ __html: claims[claimID].claim }} className="text-darkPink" />
-            <WorksGallery works={works} />
-          </div>
+        <div className="col-span-full">
+          <h1
+            className="text-red-400 text-7xl"
+            dangerouslySetInnerHTML={{ __html: content.pagetitle }}
+          />
+          <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
+          <h2
+            dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
+            className="text-darkPink"
+          />
         </div>
+        <WorksGallery works={works} />
       </Layout>
     </>
   );
