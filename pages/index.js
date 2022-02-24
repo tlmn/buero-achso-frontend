@@ -23,7 +23,7 @@ const IndexPage = ({ result: { content, claims, works } }) => {
               dangerouslySetInnerHTML={{ __html: content.pagetitle }}
             />
             <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
-            <h2 dangerouslySetInnerHTML={{ __html: claims[claimID].claim }} />
+            <h2 dangerouslySetInnerHTML={{ __html: claims[claimID].claim }} className="text-darkPink" />
             <WorksGallery works={works} />
           </div>
         </div>
