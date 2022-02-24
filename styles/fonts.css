@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Grotesque6";
+  src: url("/fonts/grotesque-6-regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "David";
+  src: url("/fonts/david-regular.woff") format("woff");
+  font-weight: 400;
+}

@@ -1,0 +1,56 @@
+@import "./fonts.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.runningText {
+  @apply font-david;
+  font-size: 15px;
+  line-height: calc(17 / 15);
+}
+
+@screen md {
+  .runningText {
+    font-size: 24px;
+    line-height: calc(24 / 21);
+  }
+}
+
+h1 {
+  @apply font-grotesque;
+  font-size: 20px;
+  line-height: calc(17 / 20);
+}
+
+@screen md {
+  h1 {
+    font-size: 58px;
+    line-height: calc(51 / 58);
+  }
+}
+
+h2 {
+  @apply font-grotesque;
+  font-size: 20.5px;
+  line-height: calc(20 / 20.5);
+}
+
+@screen md {
+  h2 {
+    font-size: 57px;
+    line-height: calc(56 / 57);
+  }
+}
+
+h3 {
+  @apply font-grotesque;
+  font-size: 35px;
+  line-height: calc(41 / 35);
+}
+
+@screen md {
+  h3 {
+    font-size: 36px;
+    line-height: calc(38 / 36);
+  }
+}
