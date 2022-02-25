@@ -1,15 +1,5 @@
-import { default as NextImage } from "next/image";
-import clsx from "clsx";
-
-const Image = ({ url, alt, className }) => (
-  <div className={clsx(className, "aspect-square relative")}>
-    <NextImage
-      src={url}
-      alt={alt}
-      layout="fill"
-      objectFit="cover"
-    />
-  </div>
+const Image = ({ url, alt, srcset }) => (
+  <img src={url} srcSet={srcset} className="aspect-square w-full object-cover" alt={alt} />
 );
 
 export default Image;

@@ -50,7 +50,16 @@ export async function getStaticProps() {
         query: "page('arbeiten').children",
         select: {
           id: true,
-          coverimage: "page.content.pageimage.toFile",
+          coverimage: {
+            query: "page.content.pageimage.toFile",
+            select: {
+              url: true,
+              width: true,
+              height: true,
+              alt: true,
+              srcset: "file.srcset([300, 800, 1024])"
+            },
+          },
         },
       },
     },
