@@ -4,7 +4,7 @@ import { queryKirby } from "@/lib/queryKirby";
 const ImprintPage = ({ result }) => {
   return (
     <Layout className="bg-neon">
-      <pre>{JSON.stringify(result, null, 2)}</pre>
+      <div className="col-span-1" dangerouslySetInnerHTML={{ __html: result.content }} />
     </Layout>
   );
 };
@@ -13,7 +13,7 @@ export async function getStaticProps() {
   const data = await queryKirby({
     query: "page('impressum')",
     select: {
-      content: true,
+      content: "page.content.text.markdown",
     },
   });
 
