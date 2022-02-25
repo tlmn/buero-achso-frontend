@@ -24,7 +24,7 @@ const IndexPage = ({ result: { content, claims, works } }) => {
           <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
-            className="text-darkPink"
+            className="text-darkPink py-32"
           />
         </div>
         <WorksGallery works={works} />
@@ -50,8 +50,11 @@ export async function getStaticProps() {
         query: "page('arbeiten').children",
         select: {
           id: true,
+          content: {
+            query: "page.content"
+          },
           coverimage: {
-            query: "page.content.pageimage.toFile",
+            query: "page.content.coverimage.toFile",
             select: {
               url: true,
               width: true,

@@ -3,31 +3,31 @@ import WorkGallery from "@/components/workGallery/workGallery";
 import { queryKirby } from "@/lib/queryKirby";
 import Head from "next/head";
 
-const WorkPage = ({ data: { content, gallery, site, pageimage } }) => (
+const WorkPage = ({ data: { content, gallery, site, ogimage } }) => (
     <>
         <Head>
             <title>
                 {content.title} – {site.title}
             </title>
             <meta name="description" content={content.pagedescription} />
-            {pageimage?.url !== undefined && (
-                <meta property="og:image" content={pageimage.url} />
+            {ogimage?.url !== undefined && (
+                <meta property="og:image" content={ogimage.url} />
             )}
         </Head>
         <Layout className="bg-white">
             <div className="col-span-full">
                 <h1 dangerouslySetInnerHTML={{ __html: content.title }} />
-                {content?.subtitle && (
+                {content?.subtitle !== null && (
                     <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
                 )}
-                {content?.collaborators && (
-                    <h2 dangerouslySetInnerHTML={{ __html: content.collaborators }} />
-                )}
-                {content?.time && (
-                    <h2 dangerouslySetInnerHTML={{ __html: content.time }} />
+                {content?.credits && (
+                    <span dangerouslySetInnerHTML={{ __html: content.credits }} className="runningText mb-32" />
                 )}
             </div>
             <WorkGallery gallery={gallery} />
+            <div className="col-span-1">
+                <span dangerouslySetInnerHTML={{ __html: content.description }} className="runningText" />
+            </div>
         </Layout>
     </>
 );
@@ -50,8 +50,8 @@ export async function getStaticProps({ params: { slug } }) {
         query: `page('arbeiten/${slug}')`,
         select: {
             content: true,
-            pageimage: {
-                query: "page.content.pageimage.toFile",
+            ogimage: {
+                query: "page.content.ogimage.toFile",
             },
             gallery: {
                 query: "page.content.images.toFiles",
