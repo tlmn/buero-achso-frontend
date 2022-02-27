@@ -1,23 +1,38 @@
+import Footer from "@/components/footer";
+import Head from "@/components/head";
 import Layout from "@/components/layout";
-import { queryKirby } from "@/lib/queryKirby";
+import { metaQuery, queryKirby } from "@/lib/queryKirby";
 
-const ImprintPage = ({ result }) => {
-  return (
+const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
+  <>
+    <Head sitemeta={sitemeta} pagemeta={pagemeta} />
     <Layout className="bg-neon">
-      <div className="col-span-1" dangerouslySetInnerHTML={{ __html: result.content }} />
+      <div
+        className="col-span-1 sm:col-span-2"
+        dangerouslySetInnerHTML={{ __html: pagecontent.content }}
+      />
+      <Footer {...sitemeta} />
     </Layout>
-  );
-};
+  </>
+);
 
 export async function getStaticProps() {
-  const data = await queryKirby({
-    query: "page('impressum')",
+  const { result } = await queryKirby({
     select: {
-      content: "page.content.text.markdown",
+      pagecontent: {
+        query: "page('impressum').content",
+        select: {
+          content: "page('impressum').content.text.markdown",
+          metatitle: true,
+          metaimage: true,
+          metadescription: true,
+        },
+      },
+      ...metaQuery("impressum"),
     },
   });
 
-  return { props: data };
+  return { props: result };
 }
 
 export default ImprintPage;

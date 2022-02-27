@@ -1,27 +1,28 @@
 import { useEffect, useState } from "react";
 import WorksGallery from "@/components/worksGallery/worksGallery";
-import { queryKirby } from "@/lib/queryKirby";
-import Head from "next/head";
+import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Layout from "@/components/layout";
+import Head from "@/components/head";
 
-const IndexPage = ({ result: { content, claims, works } }) => {
+const IndexPage = ({
+  sitemeta,
+  pagemeta,
+  pagecontent: { content, claims, works },
+}) => {
   const [claimID, setClaimID] = useState(0);
 
   useEffect(() => setClaimID(Math.floor(Math.random() * claims.length)));
 
   return (
     <>
-      <Head>
-        <title>{content.title}</title>
-        <meta property="og:title" content={content.title} key="title" />
-      </Head>
-      <Layout className="bg-neon">
+      <Head sitemeta={sitemeta} pagemeta={pagemeta} />
+      <Layout className="bg-neon" footer={sitemeta}>
         <div className="col-span-full">
           <h1
             className="text-red-400 text-7xl"
-            dangerouslySetInnerHTML={{ __html: content.pagetitle }}
+            dangerouslySetInnerHTML={{ __html: content.heading }}
           />
-          <h2 dangerouslySetInnerHTML={{ __html: content.subtitle }} />
+          <h2 dangerouslySetInnerHTML={{ __html: content.subline }} />
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
             className="text-darkPink py-32"
@@ -34,41 +35,45 @@ const IndexPage = ({ result: { content, claims, works } }) => {
 };
 
 export async function getStaticProps() {
-  const data = await queryKirby({
-    query: "site",
+  const { result } = await queryKirby({
     select: {
-      content: {
-        query: "page('home').content",
-      },
-      claims: {
-        query: "page('home').content.claims.toStructure",
+      pagecontent: {
         select: {
-          claim: true,
-        },
-      },
-      works: {
-        query: "page('arbeiten').children",
-        select: {
-          id: true,
           content: {
-            query: "page.content"
+            query: "page('home').content",
           },
-          coverimage: {
-            query: "page.content.coverimage.toFile",
+          claims: {
+            query: "page('home').content.claims.toStructure",
             select: {
-              url: true,
-              width: true,
-              height: true,
-              alt: true,
-              srcset: "file.srcset([300, 800, 1024])"
+              claim: true,
+            },
+          },
+          works: {
+            query: "page('arbeiten').children",
+            select: {
+              id: true,
+              content: {
+                query: "page.content",
+              },
+              coverimage: {
+                query: "page.content.coverimage.toFile",
+                select: {
+                  url: true,
+                  width: true,
+                  height: true,
+                  alt: true,
+                  srcset: "file.srcset([300, 800, 1024])",
+                },
+              },
             },
           },
         },
       },
+      ...metaQuery("home"),
     },
   });
 
-  return { props: data };
+  return { props: result };
 }
 
 export default IndexPage;
