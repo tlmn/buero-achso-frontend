@@ -3,6 +3,7 @@ import WorksGallery from "@/components/worksGallery/worksGallery";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Layout from "@/components/layout";
 import Head from "@/components/head";
+import Footer from "@/components/footer";
 
 const IndexPage = ({
   sitemeta,
@@ -29,6 +30,7 @@ const IndexPage = ({
           />
         </div>
         <WorksGallery works={works} />
+        <Footer {...sitemeta} />
       </Layout>
     </>
   );
