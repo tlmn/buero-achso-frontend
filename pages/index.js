@@ -12,7 +12,7 @@ const IndexPage = ({
   pagemeta,
   pagecontent: { content, claims, works },
 }) => {
-  const [appState, setAppState] = useState({ claimID: 0, isBlurred: false });
+  const [appState, setAppState] = useState({ claimID: 0, isBlurred: false, currentItem: 0 });
 
   const { claimID, isBlurred } = appState;
 
