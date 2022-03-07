@@ -17,7 +17,7 @@ const IndexPage = ({
   const { claimID, isBlurred } = appState;
 
   const animation = useSpring({
-    filter: isBlurred ? "blur(4px)" : "blur(0px)",
+    filter: isBlurred ? "blur(3px)" : "blur(0px)",
     config: { duration: 80 },
   });
 
@@ -37,7 +37,7 @@ const IndexPage = ({
         <div className="col-span-full">
           <animated.h1
             style={animation}
-            className="text-red-400 text-7xl"
+            className="text-red-400"
             dangerouslySetInnerHTML={{ __html: content.heading }}
           />
           <animated.h2

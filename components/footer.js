@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 const Footer = ({ footer, footercopyright }) => {
   const { appState } = useAppContext()
   const { isBlurred } = appState
-  const animation = useSpring({ filter: isBlurred ? `blur(4px)` : `blur(0px)`, config: { duration: 100 } })
+  const animation = useSpring({ filter: isBlurred ? `blur(3px)` : `blur(0px)`, config: { duration: 100 } })
 
   return (
     <animated.div
