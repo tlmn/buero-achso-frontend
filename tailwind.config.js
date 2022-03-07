@@ -14,6 +14,7 @@ module.exports = {
       black: "#000",
     },
     spacing: {
+      0: 0,
       16: "1rem",
       32: "2rem",
       48: "3rem",
