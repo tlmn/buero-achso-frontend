@@ -3,13 +3,20 @@ import Image from "@/components/image";
 import useAppContext from "@/lib/useAppContext";
 import { useSpring, animated } from "react-spring";
 
-const WorksGalleryItem = ({ workitem: { coverimage, id: url, content }, index }) => {
+const WorksGalleryItem = ({
+  workitem: { coverimage, id: url, content },
+  index,
+}) => {
   const { appState, setAppState } = useAppContext();
 
   const { isBlurred, currentItem } = appState;
 
   const handleMouseAction = () =>
-    setAppState((prev) => ({ ...prev, isBlurred: !prev.isBlurred, currentItem: index }));
+    setAppState((prev) => ({
+      ...prev,
+      isBlurred: !prev.isBlurred,
+      currentItem: index,
+    }));
 
   const imageAnimation = useSpring({
     opacity: isBlurred && currentItem === index ? 0 : 1,
@@ -41,7 +48,10 @@ const WorksGalleryItem = ({ workitem: { coverimage, id: url, content }, index })
               style={circleAnimation}
               className="w-full aspect-square absolute top-0 left-0 rounded-full border-2 border-solid border-black flex items-center justify-center"
             >
-              <h3 dangerouslySetInnerHTML={{ __html: content?.title }} className="text-center" />
+              <h3
+                dangerouslySetInnerHTML={{ __html: content?.title }}
+                className="text-center"
+              />
             </animated.div>
           </div>
         </Link>
