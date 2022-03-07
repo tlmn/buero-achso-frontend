@@ -6,7 +6,7 @@ import { metaQuery, queryKirby } from "@/lib/queryKirby";
 const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
   <>
     <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-    <Layout className="bg-neon">
+    <Layout className="bg-neon" linkTo="/">
       <div
         className="col-span-1 sm:col-span-2"
         dangerouslySetInnerHTML={{ __html: pagecontent.content }}

@@ -14,7 +14,7 @@ const AboutPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-lightPink">
+      <Layout className="bg-lightPink" linkTo="/">
         <div className="col-span-full">
           <h1 dangerouslySetInnerHTML={{ __html: content.heading }} />
           <span

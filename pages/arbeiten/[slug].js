@@ -17,7 +17,7 @@ const WorkPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-white">
+      <Layout className="bg-white" linkTo="/">
         <div className="col-span-full">
           {typeof title !== undefined && (
             <h1 dangerouslySetInnerHTML={{ __html: title }} />

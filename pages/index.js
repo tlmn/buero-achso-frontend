@@ -4,27 +4,48 @@ import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Layout from "@/components/layout";
 import Head from "@/components/head";
 import Footer from "@/components/footer";
+import { Provider as AppContextProvider } from "@/lib/useAppContext";
+import { useSpring, animated } from "react-spring";
 
 const IndexPage = ({
   sitemeta,
   pagemeta,
   pagecontent: { content, claims, works },
 }) => {
-  const [claimID, setClaimID] = useState(0);
+  const [appState, setAppState] = useState({ claimID: 0, isBlurred: false });
 
-  useEffect(() => setClaimID(Math.floor(Math.random() * claims.length)));
+  const { claimID, isBlurred } = appState;
+
+  const animation = useSpring({
+    filter: isBlurred ? "blur(4px)" : "blur(0px)",
+    config: { duration: 80 },
+  });
+
+  useEffect(
+    () =>
+      setAppState((prev) => ({
+        ...prev,
+        claimID: Math.floor(Math.random() * claims.length),
+      })),
+    []
+  );
 
   return (
-    <>
+    <AppContextProvider value={{ appState, setAppState }}>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-neon" footer={sitemeta}>
+      <Layout className="bg-neon" footer={sitemeta} linkTo="ueber">
         <div className="col-span-full">
-          <h1
+          <animated.h1
+            style={animation}
             className="text-red-400 text-7xl"
             dangerouslySetInnerHTML={{ __html: content.heading }}
           />
-          <h2 dangerouslySetInnerHTML={{ __html: content.subline }} />
-          <h2
+          <animated.h2
+            style={animation}
+            dangerouslySetInnerHTML={{ __html: content.subline }}
+          />
+          <animated.h2
+            style={animation}
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
             className="text-darkPink py-32"
           />
@@ -32,7 +53,7 @@ const IndexPage = ({
         <WorksGallery works={works} />
         <Footer {...sitemeta} />
       </Layout>
-    </>
+    </AppContextProvider>
   );
 };
 
