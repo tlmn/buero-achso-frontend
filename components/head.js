@@ -10,7 +10,7 @@ const Head = ({
 }) => {
   return (
     <NextHead>
-      <meta charset="UTF-8" />
+      <meta charSet="UTF-8" />
       {typeof metatitle !== undefined && <title>{metatitle}</title>}
 
       {typeof metadescription !== undefined && (
