@@ -36,6 +36,7 @@ const WorksGalleryItem = ({
             className="cursor-pointer mb-16 sm:mb-0 relative"
             onMouseEnter={() => handleMouseAction()}
             onMouseLeave={() => handleMouseAction()}
+            onClick={() => handleMouseAction()}
           >
             <animated.div style={imageAnimation}>
               <Image {...coverimage} />
