@@ -8,6 +8,7 @@ import useAppContext from "@/lib/useAppContext";
 const Layout = ({ className, children, linkTo = "ueber" }) => {
   const { appState } = useAppContext();
   const { isBlurred } = appState;
+
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
     config: { duration: 100 },

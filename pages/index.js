@@ -4,7 +4,7 @@ import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Layout from "@/components/layout";
 import Head from "@/components/head";
 import Footer from "@/components/footer";
-import { Provider as AppContextProvider } from "@/lib/useAppContext";
+import useAppContext from "@/lib/useAppContext";
 import { useSpring, animated } from "react-spring";
 
 const IndexPage = ({
@@ -12,8 +12,7 @@ const IndexPage = ({
   pagemeta,
   pagecontent: { content, claims, works },
 }) => {
-  const [appState, setAppState] = useState({ claimID: 0, isBlurred: false, currentItem: 0 });
-
+  const { appState, setAppState } = useAppContext();
   const { claimID, isBlurred } = appState;
 
   const animation = useSpring({
@@ -31,7 +30,7 @@ const IndexPage = ({
   );
 
   return (
-    <AppContextProvider value={{ appState, setAppState }}>
+    <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-neon" footer={sitemeta} linkTo="ueber">
         <div className="col-span-full">
@@ -53,7 +52,7 @@ const IndexPage = ({
         <WorksGallery works={works} />
         <Footer {...sitemeta} />
       </Layout>
-    </AppContextProvider>
+    </>
   );
 };
 
