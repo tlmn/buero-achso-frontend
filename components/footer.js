@@ -9,7 +9,7 @@ const Footer = ({ footer, footercopyright }) => {
   const { isBlurred } = appState;
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
-    config: { duration: 100 },
+    config: { duration: 300 },
   });
 
   return (
