@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "@/components/image";
 import useAppContext from "@/lib/useAppContext";
 import { useSpring, animated } from "react-spring";
+import { springConfig } from "@/lib/config";
 
 const WorksGalleryItem = ({
   workitem: { coverimage, id: url, content },
@@ -20,12 +21,12 @@ const WorksGalleryItem = ({
 
   const imageAnimation = useSpring({
     opacity: isBlurred && currentItem === index ? 0 : 1,
-    config: { duration: 300 },
+    ...springConfig
   });
 
   const circleAnimation = useSpring({
     opacity: isBlurred && currentItem === index ? 1 : 0,
-    config: { duration: 300 },
+    ...springConfig
   });
 
   return (

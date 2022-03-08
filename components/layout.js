@@ -4,6 +4,7 @@ import ClosingX from "./svg/closingX";
 import QuestionMark from "./svg/questionMark";
 import { useSpring, animated } from "react-spring";
 import useAppContext from "@/lib/useAppContext";
+import { springConfig } from "@/lib/config";
 
 const Layout = ({ className, children, linkTo = "ueber" }) => {
   const { appState } = useAppContext();
@@ -11,7 +12,7 @@ const Layout = ({ className, children, linkTo = "ueber" }) => {
 
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
-    config: { duration: 300 },
+    ...springConfig
   });
 
   return (

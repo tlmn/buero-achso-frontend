@@ -1,3 +1,4 @@
+import { springConfig } from "@/lib/config";
 import useAppContext from "@/lib/useAppContext";
 import Link from "next/link";
 import React from "react";
@@ -9,7 +10,7 @@ const Footer = ({ footer, footercopyright }) => {
   const { isBlurred } = appState;
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
-    config: { duration: 300 },
+    ...springConfig
   });
 
   return (

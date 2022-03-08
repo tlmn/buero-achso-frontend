@@ -6,6 +6,7 @@ import Head from "@/components/head";
 import Footer from "@/components/footer";
 import useAppContext from "@/lib/useAppContext";
 import { useSpring, animated } from "react-spring";
+import { springConfig } from "@/lib/config";
 
 const IndexPage = ({
   sitemeta,
@@ -17,7 +18,7 @@ const IndexPage = ({
 
   const animation = useSpring({
     filter: isBlurred ? "blur(3px)" : "blur(0px)",
-    config: { duration: 80 },
+    ...springConfig
   });
 
   useEffect(
