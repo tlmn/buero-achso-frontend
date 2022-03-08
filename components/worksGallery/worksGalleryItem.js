@@ -11,10 +11,10 @@ const WorksGalleryItem = ({
 
   const { isBlurred, currentItem } = appState;
 
-  const handleMouseAction = () =>
+  const handleMouseAction = (isBlurredValue) =>
     setAppState((prev) => ({
       ...prev,
-      isBlurred: !prev.isBlurred,
+      isBlurred: isBlurredValue,
       currentItem: index,
     }));
 
@@ -34,8 +34,9 @@ const WorksGalleryItem = ({
         <Link href={url}>
           <div
             className="cursor-pointer mb-16 sm:mb-0 relative"
-            onMouseEnter={() => handleMouseAction()}
-            onMouseLeave={() => handleMouseAction()}
+            onMouseEnter={() => handleMouseAction(true)}
+            onMouseOver={() => handleMouseAction(true)}
+            onMouseLeave={() => handleMouseAction(false)}
             onClick={() => handleMouseAction()}
           >
             <animated.div style={imageAnimation}>
