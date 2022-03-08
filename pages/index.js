@@ -32,7 +32,7 @@ const IndexPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-neon" footer={sitemeta} linkTo="ueber">
+      <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber">
         <div className="col-span-full">
           <animated.h1
             style={animation}
