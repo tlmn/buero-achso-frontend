@@ -14,7 +14,7 @@ const Footer = ({ footer, footercopyright }) => {
 
   return (
     <animated.div style={animation} className="col-span-full">
-      <Link href="ueber">
+      <Link href="/ueber">
         <div className="cursor-pointer my-1">
           <QuestionMark className="w-[1.5rem]" />
         </div>

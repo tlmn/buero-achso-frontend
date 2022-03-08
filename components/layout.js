@@ -20,7 +20,7 @@ const Layout = ({ className, children, linkTo = "ueber" }) => {
         <animated.div style={animation} className="absolute right-0 top-0 z-10">
           <Link href={linkTo}>
             <div className="cursor-pointer">
-              {linkTo === "ueber" ? <QuestionMark /> : <ClosingX />}
+              {linkTo === "/ueber" ? <QuestionMark /> : <ClosingX />}
             </div>
           </Link>
         </animated.div>
