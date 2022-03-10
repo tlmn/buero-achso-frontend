@@ -49,7 +49,7 @@ const WorksGalleryItem = ({
             </animated.div>
             <animated.div
               style={circleAnimation}
-              className="w-full aspect-square absolute top-0 left-0 rounded-full border-2 border-solid border-black flex items-center justify-center"
+              className="w-full aspect-square absolute top-0 left-0 rounded-full border-2 border-solid border-black flex items-center justify-center p-16"
             >
               <h3
                 dangerouslySetInnerHTML={{ __html: content?.title }}
