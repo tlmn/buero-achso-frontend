@@ -44,8 +44,7 @@ const IndexPage = ({
             style={animation}
             dangerouslySetInnerHTML={{ __html: content.subline }}
           />
-          <animated.h2
-            style={animation}
+          <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
             className="text-darkPink py-32"
           />
