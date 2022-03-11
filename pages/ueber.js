@@ -75,7 +75,7 @@ export async function getStaticProps() {
       ...metaQuery("ueber"),
     },
   });
-  console.log(result);
+
   return { props: result };
 }
 
