@@ -32,8 +32,6 @@ export async function getStaticProps() {
     },
   });
 
-  console.log(result);
-
   return { props: result };
 }
 
