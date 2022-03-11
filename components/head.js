@@ -1,58 +1,61 @@
 import { default as NextHead } from "next/head";
 
-const Head = ({
-  sitemeta: { metaauthor, url, metakeywords },
-  pagemeta: {
-    metatitle,
-    metadescription,
-    metaimage: { url: metaimageurl },
-  },
-}) => {
+const Head = (props) => {
+  const {
+    sitemeta: { metaauthor, url, metakeywords },
+    pagemeta: {
+      metatitle,
+      metadescription,
+      metaimage
+    },
+  } = props
+
+  const { url: metaimageurl } = metaimage || {}
   return (
     <NextHead>
       <meta charSet="UTF-8" />
-      {typeof metatitle !== undefined && <title>{metatitle}</title>}
+      {metatitle !== undefined && <title>{metatitle}</title>}
 
-      {typeof metadescription !== undefined && (
+      {metadescription !== undefined && (
         <meta name="description" content={metadescription} />
       )}
 
-      {typeof metakeywords !== undefined && (
+      {metakeywords !== undefined && (
         <meta
           name="keywords"
           content={metakeywords.map(({ keyword }) => keyword)}
         />
       )}
 
-      {typeof metaauthor !== undefined && (
+      {metaauthor !== undefined && (
         <meta name="author" content={metaauthor} />
       )}
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <meta property="og:type" content="website" />
-      {typeof url !== undefined && <meta property="og:url" content={url} />}
-      {typeof metatitle !== undefined && (
+      {url !== undefined && <meta property="og:url" content={url} />}
+      {metatitle !== undefined && (
         <meta property="og:title" content={metatitle} />
       )}
-      {typeof metadescription !== undefined && (
+      {metadescription !== undefined && (
         <meta property="og:description" content={metadescription} />
       )}
-      {typeof metaimageurl !== undefined && (
+      {metaimageurl !== undefined && (
         <meta property="og:image" content={metaimageurl} />
       )}
 
       <meta property="twitter:card" content="summary_large_image" />
-      {typeof url !== undefined && (
+      {url !== undefined && (
         <meta property="twitter:url" content={url} />
       )}
-      {typeof metatitle !== undefined && (
+      {metatitle !== undefined && (
         <meta property="twitter:title" content={metatitle} />
       )}
-      {typeof metadescription !== undefined && (
+      {metadescription !== undefined && (
         <meta property="twitter:description" content={metadescription} />
       )}
-      {typeof metaimageurl !== undefined && (
+      {metaimageurl !== undefined && (
         <meta property="twitter:image" content={metaimageurl} />
       )}
     </NextHead>

@@ -19,10 +19,10 @@ const WorkPage = ({
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-white" linkTo="/">
         <div className="col-span-full">
-          {typeof title !== undefined && (
+          {title !== undefined && (
             <h1 dangerouslySetInnerHTML={{ __html: title }} />
           )}
-          {typeof credits !== undefined && (
+          {credits !== undefined && (
             <span
               dangerouslySetInnerHTML={{ __html: credits }}
               className="runningText mb-32"
