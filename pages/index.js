@@ -18,7 +18,7 @@ const IndexPage = ({
 
   const animation = useSpring({
     filter: isBlurred ? "blur(3px)" : "blur(0px)",
-    ...springConfig
+    ...springConfig,
   });
 
   useEffect(

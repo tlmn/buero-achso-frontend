@@ -12,7 +12,7 @@ const Layout = ({ className, children, linkTo = "ueber" }) => {
 
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
-    ...springConfig
+    ...springConfig,
   });
 
   return (

@@ -3,14 +3,10 @@ import { default as NextHead } from "next/head";
 const Head = (props) => {
   const {
     sitemeta: { metaauthor, url, metakeywords },
-    pagemeta: {
-      metatitle,
-      metadescription,
-      metaimage
-    },
-  } = props
+    pagemeta: { metatitle, metadescription, metaimage },
+  } = props;
 
-  const { url: metaimageurl } = metaimage || {}
+  const { url: metaimageurl } = metaimage || {};
   return (
     <NextHead>
       <meta charSet="UTF-8" />
@@ -27,9 +23,7 @@ const Head = (props) => {
         />
       )}
 
-      {metaauthor !== undefined && (
-        <meta name="author" content={metaauthor} />
-      )}
+      {metaauthor !== undefined && <meta name="author" content={metaauthor} />}
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -46,9 +40,7 @@ const Head = (props) => {
       )}
 
       <meta property="twitter:card" content="summary_large_image" />
-      {url !== undefined && (
-        <meta property="twitter:url" content={url} />
-      )}
+      {url !== undefined && <meta property="twitter:url" content={url} />}
       {metatitle !== undefined && (
         <meta property="twitter:title" content={metatitle} />
       )}

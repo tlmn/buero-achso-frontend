@@ -21,12 +21,12 @@ const WorksGalleryItem = ({
 
   const imageAnimation = useSpring({
     opacity: isBlurred && currentItem === index ? 0 : 1,
-    ...springConfig
+    ...springConfig,
   });
 
   const circleAnimation = useSpring({
     opacity: isBlurred && currentItem === index ? 1 : 0,
-    ...springConfig
+    ...springConfig,
   });
 
   return (

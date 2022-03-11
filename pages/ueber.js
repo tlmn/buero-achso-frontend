@@ -8,7 +8,14 @@ import { useState } from "react";
 const AboutPage = ({
   sitemeta,
   pagemeta,
-  pagecontent: { contactinfo, text, content, portraitimage, portraitimagehover, socialmedia },
+  pagecontent: {
+    contactinfo,
+    text,
+    content,
+    portraitimage,
+    portraitimagehover,
+    socialmedia,
+  },
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   return (
@@ -62,10 +69,10 @@ export async function getStaticProps() {
         select: {
           content: true,
           contactinfo: {
-            query: "page('ueber').content.contactinfo.markdown"
+            query: "page('ueber').content.contactinfo.markdown",
           },
           text: {
-            query: "page('ueber').content.text.markdown"
+            query: "page('ueber').content.text.markdown",
           },
           portraitimage: "page('ueber').content.portraitimage.toFile",
           portraitimagehover: "page('ueber').content.portraitimagehover.toFile",

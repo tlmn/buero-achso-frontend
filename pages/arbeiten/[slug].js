@@ -47,7 +47,9 @@ const WorkPage = ({
 export default WorkPage;
 
 export async function getStaticPaths() {
-  const { result: { children } } = await queryKirby({
+  const {
+    result: { children },
+  } = await queryKirby({
     query: "page('arbeiten')",
   });
 

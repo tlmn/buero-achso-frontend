@@ -10,7 +10,7 @@ const Footer = ({ footer, footercopyright }) => {
   const { isBlurred } = appState;
   const animation = useSpring({
     filter: isBlurred ? `blur(3px)` : `blur(0px)`,
-    ...springConfig
+    ...springConfig,
   });
 
   return (
