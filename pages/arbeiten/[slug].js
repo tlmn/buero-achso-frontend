@@ -71,6 +71,7 @@ export async function getStaticProps({ params: { slug } }) {
               width: true,
               height: true,
               alt: true,
+              credits: true,
               srcset: "file.srcset([300, 800, 1024])",
             },
           },
