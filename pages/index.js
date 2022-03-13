@@ -40,7 +40,7 @@ const IndexPage = ({
             className="text-red-400"
             dangerouslySetInnerHTML={{ __html: content.heading }}
           />
-          <animated.h2
+          <animated.h1
             style={animation}
             dangerouslySetInnerHTML={{ __html: content.subline }}
           />
