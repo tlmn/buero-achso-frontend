@@ -17,7 +17,7 @@
 }
 
 h1 {
-  @apply font-grotesque;
+  @apply font-david;
   font-size: 20px;
   line-height: calc(17 / 20);
 }
