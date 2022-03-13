@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-import ClosingX from "./svg/closingX";
+import BackIcon from "./svg/back";
 import QuestionMark from "./svg/questionMark";
 import { useSpring, animated } from "react-spring";
 import useAppContext from "@/lib/useAppContext";
@@ -21,7 +21,7 @@ const Layout = ({ className, children, linkTo = "ueber" }) => {
         <animated.div style={animation} className="absolute right-0 top-0 z-10">
           <Link href={linkTo}>
             <div className="cursor-pointer">
-              {linkTo === "/ueber" ? <QuestionMark /> : <ClosingX />}
+              {linkTo === "/ueber" ? <QuestionMark /> : <BackIcon />}
             </div>
           </Link>
         </animated.div>
