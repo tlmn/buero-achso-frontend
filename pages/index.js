@@ -5,8 +5,6 @@ import Layout from "@/components/layout";
 import Head from "@/components/head";
 import Footer from "@/components/footer";
 import useAppContext from "@/lib/useAppContext";
-import { useSpring, animated } from "react-spring";
-import { springConfig } from "@/lib/config";
 
 const IndexPage = ({
   sitemeta,
@@ -14,12 +12,7 @@ const IndexPage = ({
   pagecontent: { content, claims, works },
 }) => {
   const { appState, setAppState } = useAppContext();
-  const { claimID, isBlurred } = appState;
-
-  const animation = useSpring({
-    filter: isBlurred ? "blur(3px)" : "blur(0px)",
-    ...springConfig,
-  });
+  const { claimID } = appState;
 
   useEffect(
     () =>
@@ -35,14 +28,13 @@ const IndexPage = ({
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber">
         <div className="col-span-full">
-          <animated.h1
-            style={animation}
-            className="text-red-400"
+          <h1
+            className="text-red-400 hover:blurred"
             dangerouslySetInnerHTML={{ __html: content.heading }}
           />
-          <animated.h1
-            style={animation}
+          <h1
             dangerouslySetInnerHTML={{ __html: content.subline }}
+            className="hover:blurred"
           />
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
