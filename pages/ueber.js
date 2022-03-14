@@ -22,14 +22,16 @@ const AboutPage = ({
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-lightPink" linkTo="/">
-        <div className="col-span-full">
+        <div className="col-span-full pb-1">
           <h1 dangerouslySetInnerHTML={{ __html: content.heading }} />
-          <span
-            className="runningText"
-            dangerouslySetInnerHTML={{ __html: content.subline }}
-          />
+          <h1 dangerouslySetInnerHTML={{ __html: content.subline }} />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 hidden lg:block">
+          <div className="aspect-square flex items-center justify-center">
+            <span className="-rotate-[15deg] text-neon">Hi!</span>
+          </div>
+        </div>
+        <div className="col-span-1 col-start-1">
           <div
             onMouseEnter={() => setIsMouseOver(true)}
             onMouseLeave={() => setIsMouseOver(false)}
@@ -41,19 +43,26 @@ const AboutPage = ({
             )}
           </div>
         </div>
-        <div className="col-span-1">
-          <span dangerouslySetInnerHTML={{ __html: contactinfo }} />
+        <div className="col-span-1 md:col-span-2">
+          <span
+            dangerouslySetInnerHTML={{ __html: contactinfo }}
+            className="runningText md:zwischenTitel"
+          />
           <div>
             {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
               <a
                 href={socialmediaurl}
                 dangerouslySetInnerHTML={{ __html: socialmedianame }}
+                className="runningText md:zwischenTitel underline hover:no-underline"
               />
             ))}
           </div>
         </div>
-        <div className="col-span-1 col-start-1">
-          <span dangerouslySetInnerHTML={{ __html: text }} />
+        <div className="col-span-1 col-start-1 md:col-span-2">
+          <span
+            dangerouslySetInnerHTML={{ __html: text }}
+            className="runningText md:zwischenTitel"
+          />
         </div>
         <Footer {...sitemeta} />
       </Layout>

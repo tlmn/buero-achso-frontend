@@ -1,12 +1,13 @@
 import React from "react";
 
-const BackIcon = () => (
+const BackIcon = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="48"
     height="48"
     fill="none"
     viewBox="0 0 48 48"
+    className={className}
   >
     <circle cx="24" cy="24" r="22.5" stroke="#0D0E0E" strokeWidth="3"></circle>
     <path

@@ -38,7 +38,7 @@ const IndexPage = ({
           />
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
-            className="text-darkPink py-32"
+            className="text-darkPink py-1 sm:py-6"
           />
         </div>
         <WorksGallery works={works} />

@@ -4,12 +4,21 @@ import BackIcon from "./svg/back";
 import QuestionMark from "./svg/questionMark";
 
 const Layout = ({ className, children, linkTo = "ueber" }) => (
-  <div className={clsx(className, "w-screen min-h-screen py-16")}>
-    <div className="mx-16 sm:mx-32 md:mx-48 lg:mx-64 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 md:gap-32 relative">
+  <div
+    className={clsx(
+      className,
+      "w-screen min-h-screen py-1 sm:py-2 md:py-3 lg:py-5"
+    )}
+  >
+    <div className="mx-1 sm:mx-3 md:mx-5 lg:mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 relative">
       <div className="absolute right-0 top-0 z-10">
         <Link href={linkTo}>
           <div className="cursor-pointer hover:blurred">
-            {linkTo === "/ueber" ? <QuestionMark className="w-[20px] sm:w-[48px]" /> : <BackIcon className="w-[20px] sm:w-[48px]" />}
+            {linkTo === "/ueber" ? (
+              <QuestionMark className="w-[20px] sm:w-[48px]" />
+            ) : (
+              <BackIcon className="w-[20px] sm:w-[48px]" />
+            )}
           </div>
         </Link>
       </div>

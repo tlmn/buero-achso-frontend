@@ -20,12 +20,15 @@ const WorkPage = ({
       <Layout className="bg-white" linkTo="/">
         <div className="col-span-full">
           {title !== undefined && (
-            <h1 dangerouslySetInnerHTML={{ __html: title }} />
+            <h1
+              dangerouslySetInnerHTML={{ __html: title }}
+              className="mb-1 md:mb-2 lg:mb-3 pr-4"
+            />
           )}
           {credits !== undefined && (
             <span
               dangerouslySetInnerHTML={{ __html: credits }}
-              className="runningText mb-32"
+              className="block runningText mb-1 lg:mb-8 pr-2"
             />
           )}
         </div>
@@ -35,7 +38,7 @@ const WorkPage = ({
             dangerouslySetInnerHTML={{
               __html: description,
             }}
-            className="runningText"
+            className="block runningText aspect-square"
           />
         </div>
         <Footer {...sitemeta} />

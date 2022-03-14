@@ -9,7 +9,7 @@
   line-height: calc(17 / 15);
 }
 
-@screen md {
+@screen sm {
   .runningText {
     font-size: 24px;
     line-height: calc(24 / 21);
@@ -22,7 +22,7 @@ h1 {
   line-height: calc(17 / 20);
 }
 
-@screen md {
+@screen sm {
   h1 {
     font-size: 58px;
     line-height: calc(51 / 58);
@@ -35,7 +35,7 @@ h2 {
   line-height: calc(20 / 20.5);
 }
 
-@screen md {
+@screen sm {
   h2 {
     font-size: 57px;
     line-height: calc(56 / 57);
@@ -48,7 +48,7 @@ h3 {
   line-height: calc(41 / 35);
 }
 
-@screen md {
+@screen sm {
   h3 {
     font-size: 36px;
     line-height: calc(38 / 36);
@@ -58,4 +58,12 @@ h3 {
 .hover\:blurred:hover {
   filter: blur(3px);
   @apply transition-all duration-[500] ease-in-out;
+}
+
+@screen lg {
+  .md\:zwischenTitel {
+    @apply font-david;
+    font-size: 35px;
+    line-height: calc(41 / 35);
+  }
 }
