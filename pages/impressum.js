@@ -7,13 +7,16 @@ const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
   <>
     <Head sitemeta={sitemeta} pagemeta={pagemeta} />
     <Layout className="bg-neon" linkTo="/">
-      <div className="col-span-full pb-1">
-        <h1 dangerouslySetInnerHTML={{ __html: content.heading }} />
-        <h1 dangerouslySetInnerHTML={{ __html: content.subline }} />
+      <div className="col-span-full sm:pb-1">
+        <h1 dangerouslySetInnerHTML={{ __html: pagecontent.heading }} className="m-0" />
+        <h1 dangerouslySetInnerHTML={{ __html: pagecontent.subline }} className="m-0" />
       </div>
-      <div className="col-span-1 sm:col-span-2">
-        <h1>{pagecontent.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: pagecontent.content }} />
+      <div
+        className="col-span-1 sm:col-span-2"
+      >
+        <div
+          dangerouslySetInnerHTML={{ __html: pagecontent.content }}
+        />
       </div>
       <Footer {...sitemeta} />
     </Layout>
@@ -27,6 +30,8 @@ export async function getStaticProps() {
         query: "page('impressum').content",
         select: {
           content: "page('impressum').content.text.markdown",
+          heading: true,
+          subline: true,
           metatitle: true,
           title: true,
           metaimage: true,

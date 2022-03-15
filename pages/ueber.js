@@ -22,13 +22,15 @@ const AboutPage = ({
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-lightPink" linkTo="/">
-        <div className="col-span-full pb-1">
-          <h1 dangerouslySetInnerHTML={{ __html: content.heading }} />
-          <h1 dangerouslySetInnerHTML={{ __html: content.subline }} />
+        <div className="col-span-full sm:pb-1">
+          <h1 dangerouslySetInnerHTML={{ __html: content.heading }}
+            className="m-0" />
+          <h1 dangerouslySetInnerHTML={{ __html: content.subline }}
+            className="m-0" />
         </div>
         <div className="col-span-1 hidden lg:block">
           <div className="aspect-square flex items-center justify-center">
-            <span className="-rotate-[15deg] text-neon">Hi!</span>
+            <span className="-rotate-[15deg] text-neon zwischenTitel">Hi!</span>
           </div>
         </div>
         <div className="col-span-1 col-start-1">
@@ -41,6 +43,11 @@ const AboutPage = ({
             ) : (
               <Image {...portraitimage} />
             )}
+          </div>
+        </div>
+        <div className="col-span-1 block lg:hidden">
+          <div className="aspect-square flex items-center justify-center">
+            <span className="-rotate-[15deg] text-neon">Hi!</span>
           </div>
         </div>
         <div className="col-span-1 md:col-span-2">

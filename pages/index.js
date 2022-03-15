@@ -29,12 +29,12 @@ const IndexPage = ({
       <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber">
         <div className="col-span-full">
           <h1
-            className="text-red-400 hover:blurred"
+            className="hover:blurred m-0"
             dangerouslySetInnerHTML={{ __html: content.heading }}
           />
           <h1
             dangerouslySetInnerHTML={{ __html: content.subline }}
-            className="hover:blurred"
+            className="hover:blurred m-0"
           />
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}

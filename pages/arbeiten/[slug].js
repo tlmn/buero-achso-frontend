@@ -19,13 +19,13 @@ const WorkPage = ({
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-white" linkTo="/">
         <div className="col-span-full">
-          {title !== undefined && (
+          {title !== "" && (
             <h1
               dangerouslySetInnerHTML={{ __html: title }}
-              className="mb-1 md:mb-2 lg:mb-3 pr-4"
+              className="mb-1 md:mb-2 lg:mb-3 pr-4 mt-0"
             />
           )}
-          {credits !== undefined && (
+          {credits !== "" && (
             <span
               dangerouslySetInnerHTML={{ __html: credits }}
               className="block runningText mb-1 lg:mb-8 pr-2"
