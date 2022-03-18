@@ -22,13 +22,13 @@ const WorkPage = ({
           {title !== "" && (
             <h1
               dangerouslySetInnerHTML={{ __html: title }}
-              className="mb-1 md:mb-2 lg:mb-3 pr-4 mt-0"
+              className="mb-1 sm:mb-2 lg:mb-3 pr-4 mt-0"
             />
           )}
           {credits !== "" && (
             <span
               dangerouslySetInnerHTML={{ __html: credits }}
-              className="block runningText mb-1 lg:mb-8 pr-2"
+              className="block runningText mb-1 sm:mb-8 pr-2"
             />
           )}
         </div>

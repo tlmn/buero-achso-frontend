@@ -64,8 +64,8 @@ const AboutPage = ({
               {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
                 <a
                   href={socialmediaurl}
-                  dangerouslySetInnerHTML={{ __html: socialmedianame }}
-                  className="runningText md:chapterHeading underline hover:no-underline"
+                  dangerouslySetInnerHTML={{ __html: `∞ ${socialmedianame}` }}
+                  className="runningText md:chapterHeading hover:underline no-underline"
                 />
               ))}
             </div>
