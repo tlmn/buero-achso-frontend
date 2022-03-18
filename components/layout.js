@@ -15,9 +15,9 @@ const Layout = ({ className, children, linkTo = "ueber" }) => (
         <Link href={linkTo}>
           <div className="cursor-pointer hover:blurred">
             {linkTo === "/ueber" ? (
-              <QuestionMark className="w-[20px] sm:w-[48px]" />
+              <QuestionMark className="w-[20px] h-[20px] sm:w-[48px] sm:h-[48px]" />
             ) : (
-              <BackIcon className="w-[20px] sm:w-[48px]" />
+              <BackIcon className="ww-[20px] h-[20px] sm:w-[48px] sm:h-[48px]" />
             )}
           </div>
         </Link>
