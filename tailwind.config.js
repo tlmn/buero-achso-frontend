@@ -14,11 +14,11 @@ module.exports = {
       white: "#FFF",
       black: "#000",
     },
-    screens: {
+    /* screens: {
       sm: "744px",
       md: "1512px",
       lg: "2560px",
-    },
+    }, */
     spacing: {
       0: 0,
       1: "1rem",
