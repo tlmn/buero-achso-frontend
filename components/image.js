@@ -3,7 +3,9 @@ const Image = ({ url, alt, credits, srcset }) => (
     src={url}
     srcSet={srcset}
     className="aspect-square w-full object-cover"
-    alt={`${alt}${credits !== "" ? ` / ${credits}` : ``}`}
+    alt={`${alt !== undefined ? alt : ``}${
+      credits !== undefined ? ` / ${credits}` : ``
+    }`}
   />
 );
 
