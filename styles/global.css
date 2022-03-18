@@ -61,7 +61,7 @@ h3 {
 }
 
 @screen sm {
-  .zwischenTitel {
+  .chapterHeading {
     @apply font-david;
     font-size: 35px;
     line-height: calc(41 / 35);

@@ -30,7 +30,7 @@ const AboutPage = ({
         </div>
         <div className="col-span-1 hidden lg:block">
           <div className="aspect-square flex items-center justify-center">
-            <span className="-rotate-[15deg] text-neon zwischenTitel">Hi!</span>
+            <span className="-rotate-[15deg] text-neon chapterHeading">Hi!</span>
           </div>
         </div>
         <div className="col-span-1 col-start-1">
@@ -53,14 +53,14 @@ const AboutPage = ({
         <div className="col-span-1 md:col-span-2">
           <span
             dangerouslySetInnerHTML={{ __html: contactinfo }}
-            className="runningText md:zwischenTitel"
+            className="runningText md:chapterHeading"
           />
           <div>
             {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
               <a
                 href={socialmediaurl}
                 dangerouslySetInnerHTML={{ __html: socialmedianame }}
-                className="runningText md:zwischenTitel underline hover:no-underline"
+                className="runningText md:chapterHeading underline hover:no-underline"
               />
             ))}
           </div>
@@ -68,7 +68,7 @@ const AboutPage = ({
         <div className="col-span-1 col-start-1 md:col-span-2">
           <span
             dangerouslySetInnerHTML={{ __html: text }}
-            className="runningText md:zwischenTitel"
+            className="runningText md:chapterHeading"
           />
         </div>
         <Footer {...sitemeta} />
