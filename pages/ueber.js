@@ -21,64 +21,64 @@ const AboutPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-lightPink" linkTo="/">
-        <div className="col-span-full sm:pb-1">
-          <h1
-            dangerouslySetInnerHTML={{ __html: content.heading }}
-            className="m-0"
-          />
-          <h1
-            dangerouslySetInnerHTML={{ __html: content.subline }}
-            className="m-0"
-          />
-        </div>
-        <div className="col-span-1 hidden lg:block">
-          <div className="aspect-square flex items-center justify-center">
-            <span className="-rotate-[15deg] text-neon chapterHeading">
-              Hi!
-            </span>
+      <div className="bg-lightPink flex">
+        <div className="rounded-full left-0 right-0 mx-auto sm:m-0 w-[95vw] sm:w-[30vw] sm:top-[30vw] sm:left-[20vw]  top-[50vw] bg-neon aspect-square absolute z-10" />
+        <Layout className="z-20 relative" linkTo="/">
+          <div className="col-span-full sm:pb-1">
+            <h1
+              dangerouslySetInnerHTML={{ __html: content.heading }}
+              className="m-0"
+            />
+            <h1
+              dangerouslySetInnerHTML={{ __html: content.subline }}
+              className="m-0"
+            />
           </div>
-        </div>
-        <div className="col-span-1 col-start-1">
-          <div
-            onMouseEnter={() => setIsMouseOver(true)}
-            onMouseLeave={() => setIsMouseOver(false)}
-          >
-            {isMouseOver ? (
-              <Image {...portraitimagehover} />
-            ) : (
-              <Image {...portraitimage} />
-            )}
+          <div className="col-span-1 hidden md:block">
+            <div className="aspect-square md:aspect-auto h-[100px] flex items-center justify-center">
+              <span className="-rotate-[15deg] text-neon hi">Hi!</span>
+            </div>
           </div>
-        </div>
-        <div className="col-span-1 block lg:hidden">
-          <div className="aspect-square flex items-center justify-center">
-            <span className="-rotate-[15deg] text-neon">Hi!</span>
+          <div className="col-span-1 md:col-start-1 flex">
+            <div
+              onMouseEnter={() => setIsMouseOver(true)}
+              onMouseLeave={() => setIsMouseOver(false)}
+              className="aspect-square w-1/2 md:w-full"
+            >
+              {isMouseOver ? (
+                <Image {...portraitimagehover} />
+              ) : (
+                <Image {...portraitimage} />
+              )}
+            </div>
+            <div className="w-1/2 flex items-center justify-center md:hidden">
+              <span className="-rotate-[15deg] text-neon hi">Hi!</span>
+            </div>
           </div>
-        </div>
-        <div className="col-span-1 md:col-span-2">
-          <span
-            dangerouslySetInnerHTML={{ __html: contactinfo }}
-            className="runningText md:chapterHeading"
-          />
-          <div>
-            {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
-              <a
-                href={socialmediaurl}
-                dangerouslySetInnerHTML={{ __html: socialmedianame }}
-                className="runningText md:chapterHeading underline hover:no-underline"
-              />
-            ))}
+          <div className="col-span-1 md:col-span-2 col-start-1">
+            <span
+              dangerouslySetInnerHTML={{ __html: contactinfo }}
+              className="runningText md:chapterHeading"
+            />
+            <div>
+              {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
+                <a
+                  href={socialmediaurl}
+                  dangerouslySetInnerHTML={{ __html: socialmedianame }}
+                  className="runningText md:chapterHeading underline hover:no-underline"
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="col-span-1 col-start-1 md:col-span-2">
-          <span
-            dangerouslySetInnerHTML={{ __html: text }}
-            className="runningText md:chapterHeading"
-          />
-        </div>
-        <Footer {...sitemeta} />
-      </Layout>
+          <div className="col-span-1 col-start-1 md:col-span-2">
+            <span
+              dangerouslySetInnerHTML={{ __html: text }}
+              className="runningText md:chapterHeading"
+            />
+          </div>
+          <Footer {...sitemeta} />
+        </Layout>
+      </div>
     </>
   );
 };
