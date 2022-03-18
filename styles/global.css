@@ -3,14 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.runningText {
+.runningText,
+p {
   @apply font-david;
   font-size: 15px;
   line-height: calc(17 / 15);
+  letter-spacing: -0.015em;
+  @apply mb-1;
 }
 
 @screen sm {
-  .runningText {
+  .runningText,
+  p {
     font-size: 24px;
     line-height: calc(24 / 21);
   }
@@ -20,6 +24,7 @@ h1 {
   @apply font-david mb-1 mt-2;
   font-size: 20px;
   line-height: calc(17 / 20);
+  letter-spacing: -0.015em;
 }
 
 @screen sm {
@@ -33,6 +38,7 @@ h2 {
   @apply font-grotesque mb-1 mt-2;
   font-size: 20.5px;
   line-height: calc(20 / 20.5);
+  letter-spacing: -0.015em;
 }
 
 @screen sm {
@@ -67,3 +73,19 @@ h3 {
     line-height: calc(41 / 35);
   }
 }
+
+.hi {
+  @apply font-grotesque;
+  font-size: 20.5px;
+  line-height: 20px;
+}
+
+@screen sm {
+  .hi {
+    @apply font-grotesque;
+    font-size: 35px;
+    line-height: 41px;
+    letter-spacing: -0.015em;
+  }
+}
+
