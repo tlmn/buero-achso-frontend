@@ -53,7 +53,7 @@ const WorksGalleryItem = ({
             >
               <h3
                 dangerouslySetInnerHTML={{ __html: content?.title }}
-                className="text-center"
+                className="text-center px-1"
               />
             </animated.div>
           </div>
