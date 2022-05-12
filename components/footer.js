@@ -1,5 +1,3 @@
-import { springConfig } from "@/lib/config";
-import useAppContext from "@/lib/useAppContext";
 import Link from "next/link";
 import React from "react";
 import QuestionMark from "./svg/questionMark";
@@ -13,11 +11,11 @@ const Footer = ({ footer, footercopyright }) => (
     </Link>
     <span
       dangerouslySetInnerHTML={{ __html: footer }}
-      className="block hover:blurred"
+      className="block"
     />
     <span
       dangerouslySetInnerHTML={{ __html: footercopyright }}
-      className="block hover:blurred"
+      className="block"
     />
   </div>
 );
