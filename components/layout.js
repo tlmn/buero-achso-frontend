@@ -12,15 +12,15 @@ const Layout = ({ className, children, linkTo = "ueber" }) => (
   >
     <div className="mx-1 sm:mx-3 md:mx-5 lg:mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 relative">
       <div className="absolute right-0 top-0 z-10">
-        {/* <Link href={linkTo}>
+        <Link href={linkTo}>
           <div className="cursor-pointer hover:blurred">
             {linkTo === "/ueber" ? (
               <QuestionMark className="w-[20px] h-[20px] sm:w-[48px] sm:h-[48px]" />
             ) : (
-              <BackIcon className="ww-[20px] h-[20px] sm:w-[48px] sm:h-[48px]" />
+              <BackIcon className="w-[20px] h-[20px] sm:w-[48px] sm:h-[48px]" />
             )}
           </div>
-        </Link> */}
+        </Link>
       </div>
       {children}
     </div>
