@@ -42,7 +42,7 @@ const IndexPage = ({
           />
         </div>
         <WorksGallery works={works} />
-        <Footer {...sitemeta} />
+        {/* <Footer {...sitemeta} /> */}
       </Layout>
     </>
   );
