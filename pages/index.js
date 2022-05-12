@@ -5,6 +5,7 @@ import Layout from "@/components/layout";
 import Head from "@/components/head";
 import Footer from "@/components/footer";
 import useAppContext from "@/lib/useAppContext";
+import Link from "next/link";
 
 const IndexPage = ({
   sitemeta,
@@ -28,14 +29,18 @@ const IndexPage = ({
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber">
         <div className="col-span-full">
-          <h1
-            className="hover:blurred m-0"
-            dangerouslySetInnerHTML={{ __html: content.heading }}
-          />
-          <h1
-            dangerouslySetInnerHTML={{ __html: content.subline }}
-            className="hover:blurred m-0"
-          />
+          <Link href="/">
+            <a className="hover:blurred">
+              <h1
+                className="m-0"
+                dangerouslySetInnerHTML={{ __html: content.heading }}
+              />
+              <h1
+                dangerouslySetInnerHTML={{ __html: content.subline }}
+                className="m-0"
+              />
+            </a>
+          </Link>
           <h2
             dangerouslySetInnerHTML={{ __html: claims[claimID].claim }}
             className="text-darkPink py-1 sm:py-6"
