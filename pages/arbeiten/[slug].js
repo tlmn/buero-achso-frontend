@@ -28,7 +28,7 @@ const WorkPage = ({
           {credits !== "" && (
             <span
               dangerouslySetInnerHTML={{ __html: credits }}
-              className="block runningText mb-1 sm:mb-8 pr-2"
+              className="block runningText mb-1 sm:min-h-[12rem] pr-2"
             />
           )}
         </div>
