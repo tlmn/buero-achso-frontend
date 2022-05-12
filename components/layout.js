@@ -8,7 +8,7 @@ const Layout = ({ className, children, linkTo = "ueber", sitemeta }) => (
   <div
     className={clsx(
       className,
-      "w-screen min-h-screen py-1 sm:py-2 md:py-3 lg:py-5"
+      "w-screen min-h-screen py-1 sm:py-2 md:py-5"
     )}
   >
     <div className="mx-1 sm:mx-3 md:mx-5 lg:mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 relative">
