@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import WorksGallery from "@/components/worksGallery/worksGallery";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Layout from "@/components/layout";
 import Head from "@/components/head";
-import Footer from "@/components/footer";
 import useAppContext from "@/lib/useAppContext";
 import Link from "next/link";
 
@@ -27,7 +26,7 @@ const IndexPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber">
+      <Layout className="bg-neon" footer={sitemeta} linkTo="/ueber" sitemeta={sitemeta}>
         <div className="col-span-full">
           <Link href="/">
             <a className="hover:blurred">
@@ -47,7 +46,6 @@ const IndexPage = ({
           />
         </div>
         <WorksGallery works={works} />
-        {/* <Footer {...sitemeta} /> */}
       </Layout>
     </>
   );

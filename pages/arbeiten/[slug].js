@@ -2,7 +2,6 @@ import Layout from "@/components/layout";
 import WorkGallery from "@/components/workGallery/workGallery";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Head from "@/components/head";
-import Footer from "@/components/footer";
 
 const WorkPage = ({
   data: {
@@ -17,7 +16,7 @@ const WorkPage = ({
   return (
     <>
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-white" linkTo="/">
+      <Layout className="bg-white" linkTo="/" sitemeta={sitemeta}>
         <div className="col-span-full">
           {title !== "" && (
             <h1
@@ -41,7 +40,6 @@ const WorkPage = ({
             className="block runningText aspect-square"
           />
         </div>
-        <Footer {...sitemeta} />
       </Layout>
     </>
   );

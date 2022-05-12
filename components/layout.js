@@ -2,8 +2,9 @@ import clsx from "clsx";
 import Link from "next/link";
 import BackIcon from "./svg/back";
 import QuestionMark from "./svg/questionMark";
+import Footer from "./footer";
 
-const Layout = ({ className, children, linkTo = "ueber" }) => (
+const Layout = ({ className, children, linkTo = "ueber", sitemeta }) => (
   <div
     className={clsx(
       className,
@@ -23,6 +24,7 @@ const Layout = ({ className, children, linkTo = "ueber" }) => (
         </Link>
       </div>
       {children}
+      <Footer {...sitemeta} />
     </div>
   </div>
 );

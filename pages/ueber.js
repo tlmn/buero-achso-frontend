@@ -23,7 +23,7 @@ const AboutPage = ({
       <Head sitemeta={sitemeta} pagemeta={pagemeta} />
       <div className="bg-lightPink flex">
         <div className="rounded-full left-0 right-0 mx-auto sm:m-0 w-[95vw] sm:w-[30vw] sm:top-[30vw] sm:left-[20vw]  top-[50vw] bg-neon aspect-square absolute z-10" />
-        <Layout className="z-20 relative" linkTo="/">
+        <Layout className="z-20 relative" linkTo="/" sitemeta={sitemeta}>
           <div className="col-span-full sm:pb-1">
             <h1
               dangerouslySetInnerHTML={{ __html: content.heading }}
@@ -76,7 +76,6 @@ const AboutPage = ({
               className="runningText md:chapterHeading"
             />
           </div>
-          <Footer {...sitemeta} />
         </Layout>
       </div>
     </>

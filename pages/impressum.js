@@ -1,4 +1,3 @@
-import Footer from "@/components/footer";
 import Head from "@/components/head";
 import Layout from "@/components/layout";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
@@ -6,7 +5,7 @@ import { metaQuery, queryKirby } from "@/lib/queryKirby";
 const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
   <>
     <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-    <Layout className="bg-neon" linkTo="/">
+    <Layout className="bg-neon" linkTo="/" sitemeta={sitemeta}>
       <div className="col-span-full sm:pb-1">
         <h1
           dangerouslySetInnerHTML={{ __html: pagecontent.heading }}
@@ -20,7 +19,6 @@ const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
       <div className="col-span-1 sm:col-span-2">
         <div dangerouslySetInnerHTML={{ __html: pagecontent.content }} />
       </div>
-      <Footer {...sitemeta} />
     </Layout>
   </>
 );
