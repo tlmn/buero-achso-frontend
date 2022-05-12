@@ -11,11 +11,11 @@ const Footer = ({ footer, footercopyright }) => (
     </Link>
     <span
       dangerouslySetInnerHTML={{ __html: footer }}
-      className="block"
+      className="block runningText"
     />
     <span
       dangerouslySetInnerHTML={{ __html: footercopyright }}
-      className="block"
+      className="block runningText"
     />
   </div>
 );
