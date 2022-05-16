@@ -10,6 +10,7 @@
     "clsx": "^1.1.1",
     "next": "^12.1.0",
     "react": "17.0.2",
+    "react-div-100vh": "^0.7.0",
     "react-dom": "17.0.2",
     "react-spring": "^9.4.3",
     "sharp": "^0.30.1"
