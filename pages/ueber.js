@@ -1,21 +1,13 @@
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Image from "@/components/image";
 import Layout from "@/components/layout";
-import Footer from "@/components/footer";
 import Head from "@/components/head";
 import { useState } from "react";
 
 const AboutPage = ({
   sitemeta,
   pagemeta,
-  pagecontent: {
-    contactinfo,
-    text,
-    content,
-    portraitimage,
-    portraitimagehover,
-    socialmedia,
-  },
+  pagecontent,
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   return (
@@ -26,11 +18,11 @@ const AboutPage = ({
         <Layout className="z-20 relative" linkTo="/" sitemeta={sitemeta}>
           <div className="col-span-full sm:pb-1">
             <h1
-              dangerouslySetInnerHTML={{ __html: content.heading }}
+              dangerouslySetInnerHTML={{ __html: pagecontent?.content?.heading }}
               className="m-0"
             />
             <h1
-              dangerouslySetInnerHTML={{ __html: content.subline }}
+              dangerouslySetInnerHTML={{ __html: pagecontent?.content?.subline }}
               className="m-0"
             />
           </div>
@@ -46,9 +38,9 @@ const AboutPage = ({
               className="aspect-square w-1/2 md:w-full"
             >
               {isMouseOver ? (
-                <Image {...portraitimagehover} />
+                <Image {...pagecontent?.portraitimagehover} />
               ) : (
-                <Image {...portraitimage} />
+                <Image {...pagecontent?.portraitimage} />
               )}
             </div>
             <div className="w-1/2 flex items-center justify-center md:hidden">
@@ -57,11 +49,11 @@ const AboutPage = ({
           </div>
           <div className="col-span-1 md:col-span-2 col-start-1">
             <span
-              dangerouslySetInnerHTML={{ __html: contactinfo }}
+              dangerouslySetInnerHTML={{ __html: pagecontent?.contactinfo }}
               className="runningText md:chapterHeading"
             />
             <div>
-              {socialmedia.map(({ socialmedianame, socialmediaurl }) => (
+              {pagecontent?.socialmedia?.map(({ socialmedianame, socialmediaurl }) => (
                 <a
                   href={socialmediaurl}
                   dangerouslySetInnerHTML={{ __html: `∞ ${socialmedianame}` }}
@@ -72,7 +64,7 @@ const AboutPage = ({
           </div>
           <div className="col-span-1 col-start-1 md:col-span-2">
             <span
-              dangerouslySetInnerHTML={{ __html: text }}
+              dangerouslySetInnerHTML={{ __html: pagecontent?.text }}
               className="runningText md:chapterHeading"
             />
           </div>

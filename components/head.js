@@ -2,53 +2,52 @@ import { default as NextHead } from "next/head";
 
 const Head = (props) => {
   const {
-    sitemeta: { metaauthor, url, metakeywords },
-    pagemeta: { metatitle, metadescription, metaimage },
+    pagemeta
   } = props;
 
-  const { url: metaimageurl } = metaimage || {};
+  const metaimageurl = pagemeta?.metaimage?.url || {};
   return (
     <NextHead>
       <meta charSet="UTF-8" />
-      {metatitle !== undefined && <title>{metatitle}</title>}
+      {pagemeta?.metatitle !== undefined && <title>{pagemeta?.metatitle}</title>}
 
-      {metadescription !== undefined && (
-        <meta name="description" content={metadescription} />
+      {pagemeta?.metadescription !== undefined && (
+        <meta name="description" content={pagemeta?.metadescription} />
       )}
 
-      {metakeywords !== undefined && (
+      {pagemeta?.metakeywords !== undefined && (
         <meta
           name="keywords"
-          content={metakeywords.map(({ keyword }) => keyword)}
+          content={pagemeta?.metakeywords?.map(({ keyword }) => keyword)}
         />
       )}
 
-      {metaauthor !== undefined && <meta name="author" content={metaauthor} />}
+      {pagemeta?.metaauthor !== undefined && <meta name="author" content={pagemeta?.metaauthor} />}
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <meta property="og:type" content="website" />
-      {url !== undefined && <meta property="og:url" content={url} />}
-      {metatitle !== undefined && (
-        <meta property="og:title" content={metatitle} />
+      {pagemeta?.url !== undefined && <meta property="og:url" content={pagemeta?.url} />}
+      {pagemeta?.metatitle !== undefined && (
+        <meta property="og:title" content={pagemeta?.metatitle} />
       )}
-      {metadescription !== undefined && (
-        <meta property="og:description" content={metadescription} />
+      {pagemeta?.metadescription !== undefined && (
+        <meta property="og:description" content={pagemeta?.metadescription} />
       )}
-      {metaimageurl !== undefined && (
-        <meta property="og:image" content={metaimageurl} />
+      {pagemeta?.metaimageurl !== undefined && (
+        <meta property="og:image" content={pagemeta?.metaimageurl} />
       )}
 
       <meta property="twitter:card" content="summary_large_image" />
-      {url !== undefined && <meta property="twitter:url" content={url} />}
-      {metatitle !== undefined && (
-        <meta property="twitter:title" content={metatitle} />
+      {pagemeta?.url !== undefined && <meta property="twitter:url" content={pagemeta?.url} />}
+      {pagemeta?.metatitle !== undefined && (
+        <meta property="twitter:title" content={pagemeta?.metatitle} />
       )}
-      {metadescription !== undefined && (
-        <meta property="twitter:description" content={metadescription} />
+      {pagemeta?.metadescription !== undefined && (
+        <meta property="twitter:description" content={pagemeta?.metadescription} />
       )}
-      {metaimageurl !== undefined && (
-        <meta property="twitter:image" content={metaimageurl} />
+      {pagemeta?.metaimageurl !== undefined && (
+        <meta property="twitter:image" content={pagemeta?.metaimageurl} />
       )}
     </NextHead>
   );
