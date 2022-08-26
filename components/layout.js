@@ -25,7 +25,7 @@ const Layout = ({ className, children, linkTo = "ueber", sitemeta }) => {
         </Link> */}
         </div>
         {children}
-        {/* <Footer {...sitemeta} /> */}
+        <Footer {...sitemeta} />
       </div>
     </div>
   );
