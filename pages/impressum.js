@@ -8,16 +8,16 @@ const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
     <Layout className="bg-neon" linkTo="/" sitemeta={sitemeta}>
       <div className="col-span-full sm:pb-1">
         <h1
-          dangerouslySetInnerHTML={{ __html: pagecontent.heading }}
+          dangerouslySetInnerHTML={{ __html: pagecontent?.heading }}
           className="m-0"
         />
         <h1
-          dangerouslySetInnerHTML={{ __html: pagecontent.subline }}
+          dangerouslySetInnerHTML={{ __html: pagecontent?.subline }}
           className="m-0"
         />
       </div>
       <div className="col-span-1 sm:col-span-2">
-        <div dangerouslySetInnerHTML={{ __html: pagecontent.content }} />
+        <div dangerouslySetInnerHTML={{ __html: pagecontent?.content }} />
       </div>
     </Layout>
   </>

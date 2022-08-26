@@ -48,13 +48,14 @@ const WorkPage = ({
 export default WorkPage;
 
 export async function getStaticPaths() {
-  const {
-    result: { children },
-  } = await queryKirby({
+  const { result } = await queryKirby({
     query: "page('arbeiten')",
   });
 
-  const paths = children.map((child) => ({
+
+  const children = result?.children || [];
+
+  const paths = children?.map((child) => ({
     params: { slug: child.replace("arbeiten/", "") },
   }));
 
