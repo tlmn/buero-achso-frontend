@@ -4,6 +4,7 @@ import Layout from "@/components/layout";
 import Head from "@/components/head";
 import { useState } from "react";
 import { parseText } from "@/lib/helpers";
+import Link from "next/link";
 
 const AboutPage = ({ sitemeta, pagemeta, pagecontent }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
@@ -14,12 +15,16 @@ const AboutPage = ({ sitemeta, pagemeta, pagecontent }) => {
         <div className="rounded-full left-0 right-0 mx-auto sm:m-0 w-[95vw] sm:w-[30vw] sm:top-[30vw] sm:left-[20vw]  top-[50vw] bg-neon aspect-square absolute z-10" />
         <Layout className="relative z-20" linkTo="/" sitemeta={sitemeta}>
           <div className="col-span-full sm:pb-1">
-            <h1
-              dangerouslySetInnerHTML={{
-                __html: pagecontent?.content?.heading,
-              }}
-              className="m-0"
-            />
+            <Link href="/">
+              <a className="hover:blurred">
+                <h1
+                  dangerouslySetInnerHTML={{
+                    __html: pagecontent?.content?.heading,
+                  }}
+                  className="m-0"
+                />
+              </a>
+            </Link>
             <h1
               dangerouslySetInnerHTML={{
                 __html: pagecontent?.content?.subline,

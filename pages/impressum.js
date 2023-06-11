@@ -2,16 +2,21 @@ import Head from "@/components/head";
 import Layout from "@/components/layout";
 import { parseText } from "@/lib/helpers";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
+import Link from "next/link";
 
 const ImprintPage = ({ sitemeta, pagemeta, pagecontent }) => (
   <>
     <Head sitemeta={sitemeta} pagemeta={pagemeta} />
     <Layout className="bg-neon" linkTo="/" sitemeta={sitemeta}>
       <div className="col-span-full sm:pb-1">
-        <h1
-          dangerouslySetInnerHTML={{ __html: pagecontent?.heading }}
-          className="m-0"
-        />
+        <Link href="/">
+          <a className="hover:blurred">
+            <h1
+              dangerouslySetInnerHTML={{ __html: pagecontent?.heading }}
+              className="m-0"
+            />
+          </a>
+        </Link>
         <h1
           dangerouslySetInnerHTML={{ __html: pagecontent?.subline }}
           className="m-0"
