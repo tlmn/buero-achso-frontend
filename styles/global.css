@@ -21,7 +21,7 @@ p {
 }
 
 h1 {
-  @apply font-david mb-1 mt-2;
+  @apply mt-2 mb-1 font-david;
   font-size: 20px;
   line-height: calc(17 / 20);
   letter-spacing: -0.015em;
@@ -35,7 +35,7 @@ h1 {
 }
 
 h2 {
-  @apply font-grotesque mb-1 mt-2;
+  @apply mt-2 mb-1 font-grotesque;
   font-size: 20.5px;
   line-height: calc(20 / 20.5);
   letter-spacing: -0.015em;
@@ -89,3 +89,6 @@ h3 {
   }
 }
 
+.text-link {
+  @apply underline;
+}
