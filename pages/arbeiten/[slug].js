@@ -2,6 +2,7 @@ import Layout from "@/components/layout";
 import WorkGallery from "@/components/workGallery/workGallery";
 import { metaQuery, queryKirby } from "@/lib/queryKirby";
 import Head from "@/components/head";
+import { parseText } from "@/lib/helpers";
 
 const WorkPage = ({
   data: {
@@ -9,41 +10,39 @@ const WorkPage = ({
     pagemeta,
     pagecontent: {
       gallery,
-      content: { title, subline, credits, description },
+      content: { title, credits, description },
     },
   },
-}) => {
-  return (
-    <>
-      <Head sitemeta={sitemeta} pagemeta={pagemeta} />
-      <Layout className="bg-white" linkTo="/" sitemeta={sitemeta}>
-        <div className="col-span-full">
-          {title !== "" && (
-            <h1
-              dangerouslySetInnerHTML={{ __html: title }}
-              className="mb-1 sm:mb-2 lg:mb-3 pr-4 mt-0"
-            />
-          )}
-          {credits !== "" && (
-            <span
-              dangerouslySetInnerHTML={{ __html: credits }}
-              className="block runningText mb-1 sm:min-h-[12rem] pr-2"
-            />
-          )}
-        </div>
-        <WorkGallery gallery={gallery} />
-        <div className="col-span-1">
-          <span
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-            className="block runningText aspect-square"
+}) => (
+  <>
+    <Head sitemeta={sitemeta} pagemeta={pagemeta} />
+    <Layout className="bg-white" linkTo="/" sitemeta={sitemeta}>
+      <div className="col-span-full">
+        {title !== "" && (
+          <h1
+            dangerouslySetInnerHTML={{ __html: title }}
+            className="pr-4 mt-0 mb-1 sm:mb-2 lg:mb-3"
           />
-        </div>
-      </Layout>
-    </>
-  );
-};
+        )}
+        {credits !== "" && (
+          <span
+            dangerouslySetInnerHTML={{ __html: credits }}
+            className="block runningText mb-1 sm:min-h-[12rem] pr-2"
+          />
+        )}
+      </div>
+      <WorkGallery gallery={gallery} />
+      <div className="col-span-1">
+        <span
+          dangerouslySetInnerHTML={{
+            __html: parseText(description),
+          }}
+          className="block runningText aspect-square"
+        />
+      </div>
+    </Layout>
+  </>
+);
 
 export default WorkPage;
 
@@ -51,7 +50,6 @@ export async function getStaticPaths() {
   const { result } = await queryKirby({
     query: "page('arbeiten')",
   });
-
 
   const children = result?.children || [];
 
