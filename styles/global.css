@@ -90,9 +90,9 @@ h3 {
 }
 
 .text-link {
-  @apply underline;
+  @apply no-underline;
 }
 
 .text-link:hover {
-  @apply no-underline;
+  @apply underline;
 }
